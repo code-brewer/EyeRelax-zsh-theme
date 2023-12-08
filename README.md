@@ -26,6 +26,13 @@ After command execution, you can see also:
 - Command execution time
 - Success/Error hint
 
+### Credits
+
+This project borrow ideas from bellow themes:
+
+- [ohmyzsh-theme-passion](https://github.com/ChesterYue/ohmyzsh-theme-passion)
+- [simplerich-zsh-theme](https://github.com/philip82148/simplerich-zsh-theme)
+
 ## Git Status Symbols
 
 The git status is updated immediately after a command is finished or every 10 seconds after the terminal is started.
