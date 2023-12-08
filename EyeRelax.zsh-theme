@@ -4,7 +4,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     {
         gdate
     } || {
-        echo "\n$fg_bold[yellow]simplerich.zsh-theme depends on cmd [gdate] to get current time in milliseconds$reset_color"
+        echo "\n$fg_bold[yellow]EyeRelax.zsh-theme depends on cmd [gdate] to get current time in milliseconds$reset_color"
         echo "$fg_bold[yellow][gdate] is not installed by default in macOS$reset_color"
         echo "$fg_bold[yellow]to get [gdate] by running:$reset_color"
         echo "$fg_bold[green]brew install coreutils;$reset_color"
@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # return value in second unit,  example: '1702020768.012',
-_simplerich_current_time_millis() {
+_eye_relax_current_time_millis() {
     local time_millis
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         # Linux
@@ -54,18 +54,18 @@ cmp() {
    awk -v n1="$1" -v n2="$2" 'BEGIN {print (n1<n2?"-1":n1==n2?"0":"1")}'
 }
 
-_simplerich_update_git_info() {
+_eye_relax_update_git_info() {
     if [ -n "$__CURRENT_GIT_STATUS" ]; then
-        _SIMPLERICH_GIT_INFO=$(git_super_status)
+        _EYE_RELAX_GIT_INFO=$(git_super_status)
     else
-        _SIMPLERICH_GIT_INFO=$(git_prompt_info)
+        _EYE_RELAX_GIT_INFO=$(git_prompt_info)
     fi
 }
 
 # command execute before
 # REF: http://zsh.sourceforge.net/Doc/Release/Functions.html
 preexec() { # cspell:disable-line
-    _SIMPLERICH_COMMAND_TIME_BEGIN="$(_simplerich_current_time_millis)"
+    _EYE_RELAX_COMMAND_TIME_BEGIN="$(_eye_relax_current_time_millis)"
 }
 
 # command execute after
@@ -82,7 +82,7 @@ precmd() { # cspell:disable-line
             color="%{$fg[red]%}"
         fi
 
-        _SIMPLERICH_COMMAND_STATUS="${color}%(!.#.$ -->)%{$reset_color%}"
+        _EYE_RELAX_COMMAND_STATUS="${color}%(!.#.$ -->)%{$reset_color%}"
     }
 
     function update_command_status() {
@@ -97,11 +97,11 @@ precmd() { # cspell:disable-line
         else
             arrow="%{$fg_bold[red]%}❱❱❱";   # WYH: when failed
         fi
-        _SIMPLERICH_COMMAND_STATUS="$(get_cur_folder_name) ${arrow}${reset_font}${color_reset}";
+        _EYE_RELAX_COMMAND_STATUS="$(get_cur_folder_name) ${arrow}${reset_font}${color_reset}";
     }
 
     output_command_execute_after() {
-        if [ "$_SIMPLERICH_COMMAND_TIME_BEGIN" = "-20200325" ] || [ "$_SIMPLERICH_COMMAND_TIME_BEGIN" = "" ]; then
+        if [ "$_EYE_RELAX_COMMAND_TIME_BEGIN" = "-20200325" ] || [ "$_EYE_RELAX_COMMAND_TIME_BEGIN" = "" ]; then
             return 1
         fi
 
@@ -121,9 +121,9 @@ precmd() { # cspell:disable-line
         local time="[$(date +%H:%M:%S)]"
 
         # cost
-        local time_end="$(_simplerich_current_time_millis)"
-        local cost=$(bc -l <<<"${time_end}-${_SIMPLERICH_COMMAND_TIME_BEGIN}")
-        _SIMPLERICH_COMMAND_TIME_BEGIN="-20200325"
+        local time_end="$(_eye_relax_current_time_millis)"
+        local cost=$(bc -l <<<"${time_end}-${_EYE_RELAX_COMMAND_TIME_BEGIN}")
+        _EYE_RELAX_COMMAND_TIME_BEGIN="-20200325"
 
         local threshold=1  # print if cost time greater than 1 second
         local _print_cost_line=false
@@ -157,7 +157,7 @@ precmd() { # cspell:disable-line
         last_cmd_result=false
     fi
 
-    _simplerich_update_git_info
+    _eye_relax_update_git_info
 
     update_command_status $last_cmd_result
 
@@ -224,7 +224,7 @@ git_super_status() {
     echo $git_status
 }
 
-_simplerich_prompt() {
+_eye_relax_prompt() {
     real_time() {
         # echo "[%*]";
         echo "[$(date +%H:%M:%S)]"
@@ -261,11 +261,11 @@ _simplerich_prompt() {
     }
 
     git_info() {
-        echo "${_SIMPLERICH_GIT_INFO}"
+        echo "${_EYE_RELAX_GIT_INFO}"
     }
 
     command_status() {
-        echo "${_SIMPLERICH_COMMAND_STATUS}"
+        echo "${_EYE_RELAX_COMMAND_STATUS}"
     }
 
     if [ -v CONDA_DEFAULT_ENV ] || [ -v VIRTUAL_ENV ]; then
@@ -277,4 +277,4 @@ $(command_status) "
     fi
 }
 
-PROMPT='$(_simplerich_prompt)'
+PROMPT='$(_eye_relax_prompt)'

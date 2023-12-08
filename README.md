@@ -1,4 +1,4 @@
-# zsh-simple-theme
+# EyeRelax-zsh-theme
 
 ## Overview
 
@@ -46,8 +46,8 @@ The git status is updated immediately after a command is finished or every 10 se
 
 ```shell
 # cd path/to/where_u_want_to_clone_the_repo
-git clone --recursive https://github.com/code-brewer/zsh-simple-theme
-cp ./zsh-simple-theme/simplerich.zsh-theme ~/.oh-my-zsh/themes/
+git clone --recursive https://gitee.com/cloud-wang/EyeRelax-zsh-theme
+cp ./EyeRelax-zsh-theme/EyeRelax.zsh-theme ~/.oh-my-zsh/themes/
 ```
 
 2. Edit ~/.zshrc.
@@ -55,16 +55,16 @@ cp ./zsh-simple-theme/simplerich.zsh-theme ~/.oh-my-zsh/themes/
 ```shell
 # file:~/.zshrc
 # Find the line that reads ZSH_THEME="..." and replace it with the followings.
-ZSH_THEME="simplerich"
-source path/to/where_u_want_to_clone_the_repo/zsh-simple-theme/zsh-git-prompt/zshrc.sh
+ZSH_THEME="EyeRelax"
+source path/to/where_u_want_to_clone_the_repo/EyeRelax-zsh-theme/zsh-git-prompt/zshrc.sh
 ```
 
 **Attention**
 
 - These must be BEFORE the line `source $ZSH/oh-my-zsh.sh` in `~/.zshrc`.
 - Change the path of `source .../zsh-git-prompt/zshrc.sh` according to your environment.
-- If you comment out `source .../zsh-git-prompt/zshrc.sh` or you cannot use `python` command, you can use a simpler git status like the following:  
-  ![simpler-git-status.png](./readme/simpler-git-status.png)
+- If you comment out `source .../zsh-git-prompt/zshrc.sh` or you cannot use `python` command, you can use a eye_relax git status like the following:  
+  ![eye_relax_git_status.png](./readme/eye_relax_git_status.png)
 
 3. If you use venv, remove the original display of the environment name.
 
@@ -90,12 +90,12 @@ See also [Overriding and adding themes](https://github.com/ohmyzsh/ohmyzsh/wiki/
 
 ### On macOS, Command Not Found: gdate
 
-- simplerich.zsh-theme depends on cmd `gdate` to get current time in milliseconds. get `gdate` on macOS by running `brew install coreutils` then `source ~/.zshrc`.
+- EyeRelax.zsh-theme depends on cmd `gdate` to get current time in milliseconds. get `gdate` on macOS by running `brew install coreutils` then `source ~/.zshrc`.
 - See also [#12](https://github.com/ChesterYue/ohmyzsh-theme-passion/issues/12).
 
 ### On Linux, Command Not Found: bc
 
-- simplerich.zsh-theme depends on cmd `bc` to calculate the command running time cost. [get bc on Linux](https://www.tecmint.com/bc-command-examples/#:~:text=If%20you%20don%E2%80%99t%20have%20bc%20on%20your%20system%2C,command%20prompt%20and%20simply%20start%20calculating%20your%20expressions.) then `source ~/.zshrc`.
+- EyeRelax.zsh-theme depends on cmd `bc` to calculate the command running time cost. [get bc on Linux](https://www.tecmint.com/bc-command-examples/#:~:text=If%20you%20don%E2%80%99t%20have%20bc%20on%20your%20system%2C,command%20prompt%20and%20simply%20start%20calculating%20your%20expressions.) then `source ~/.zshrc`.
 - See also [#13](https://github.com/ChesterYue/ohmyzsh-theme-passion/issues/13).
 
 ### On Centos 7, Shell Exit
@@ -118,7 +118,7 @@ See also [Overriding and adding themes](https://github.com/ohmyzsh/ohmyzsh/wiki/
 
 <!-- cspell:disable-next-line -->
 
-- iTerm2: Settings -> Profiles -> Colors -> Color Presets -> Import `./simplerich.itermcolors`
+- iTerm2: Settings -> Profiles -> Colors -> Color Presets -> Import `./EyeRelax.itermcolors`
   ![color.png](./readme/color.png)
 - Alternate terminal: Try [Alternate terminal installation and configuration](https://iterm2colorschemes.com/).
 
