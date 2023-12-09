@@ -28,7 +28,8 @@ After command execution, you can see also:
 
 ### Credits
 
-This project borrow ideas from bellow themes:
+This project is base on "simplerich-zsh-theme" and borrow code from "ohmyzsh-theme-passion", 
+also some modification accordding to my own preferences.
 
 - [ohmyzsh-theme-passion](https://github.com/ChesterYue/ohmyzsh-theme-passion)
 - [simplerich-zsh-theme](https://github.com/philip82148/simplerich-zsh-theme)
